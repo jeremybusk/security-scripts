@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -e
+domain=extendhealth.com
+ns_hosts=(
+  "ns1.$domain"
+  "ns2.$domain"
+  "ns3.$domain"
+  "ns4.$domain"
+)
+
+for ns_host in "${ns_hosts[@]}"; do
+  echo Testing: $ns_host
+  sudo nmap -sU -p 53 --script=dns-recursion $ns_host
+  echo "======================="
+done
