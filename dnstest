@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -e
+test_host=www.$domain
+domain=uvoo.io
+test_host=test.$domain
+
+ns_hosts=(
+  "ns1.$domain"
+  "ns2.$domain"
+  "ns3.$domain"
+  "ns4.$domain"
+)
+
+for ns_host in "${ns_hosts[@]}"; do
+  echo Testing: $ns_host
+  # dig +short $test_host @$ns_host
+  host $test_host $ns_host
+  echo "======================="
+done
