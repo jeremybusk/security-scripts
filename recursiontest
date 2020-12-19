@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-domain=extendhealth.com
+domain=uvoo.io
 ns_hosts=(
   "ns1.$domain"
   "ns2.$domain"
